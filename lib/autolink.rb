@@ -115,7 +115,7 @@ module Twitter
     # <tt>:invisible_tag_attrs</tt>::   HTML attribute to add to invisible span tags
     # <tt>:suppress_no_follow</tt>:: do not add <tt>rel="nofollow"</tt> to auto-linked items
     def auto_link_urls(text, options = {}, &block)
-      auto_link_entities(text, Extractor.extract_urls_with_indices(text, :extract_url_without_protocol => options[:extract_url_without_protocol] || false), options, &block)
+      auto_link_entities(text, Extractor.extract_urls_with_indices(text, :extract_url_without_protocol => options.delete(:extract_url_without_protocol) || false), options, &block)
     end
 
     # These methods are deprecated, will be removed in future.
